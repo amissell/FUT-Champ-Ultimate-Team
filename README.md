@@ -13,7 +13,7 @@
 
 ## Technologies Used
 - **HTML5**: For semantic and structured web content.
-- **CSS3**: For styling, with optional frameworks like Tailwind CSS or Bootstrap.
+- **CSS3**: For styling
 - **JavaScript (Vanilla)**: For dynamic behavior, DOM manipulation, and localStorage.
 
 ## Installation

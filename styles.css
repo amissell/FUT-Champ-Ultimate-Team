@@ -63,7 +63,7 @@ main {
   gap: 20px;
   width: 80%;
   left: 50%;
-  top: 6%;
+  top: 1.5%;
   z-index: 1;
   transform: translate(-50%);
 }
@@ -75,7 +75,7 @@ main {
   gap: 20px;
   width: 80%;
   left: 50%;
-  top: 37%;
+  top: 30%;
   z-index: 1;
   transform: translate(-50%);
 }
@@ -91,14 +91,13 @@ main {
 
 .container {
   position: relative;
-  height: 300px; 
+  height: 140px; 
   width: 100%;
 }
 
 #cardGardien img {
   position: absolute;
   width: 100%;
-
   left: 50%;
   transform: translate(-50%);
   height: auto;
@@ -112,7 +111,7 @@ main {
   gap: 20px;
   width: 80%;
   left: 50%;
-  top: 65%;
+  top: 55%;
   z-index: 1;
   transform: translate(-50%);
 }
@@ -201,6 +200,34 @@ main {
   background-color: #28a745;
   transform: scale(1.02);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.extra-cards-container {
+  display: flex;
+  position: absolute;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.10px;
+  padding-bottom: 3px;
+  margin-top: 3px;
+  left: 39%;
+  transform: translate(-50%);
+  top: calc(80%);
+}
+
+.extra-card {
+  width: 90px; 
+  height: 200px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.extra-card img {
+  width: 100%; 
+  height: auto;
 }
 
 @media (max-width: 768px) {
