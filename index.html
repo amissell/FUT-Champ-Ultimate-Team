@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FUT Team Builder</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
 </head>
 
 <body>
@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="player-club">
-                            <img class="club-logo" src="https://cdn.sofifa.net/meta/team/239235/120.png">                            
+                            <img class="club-logo" src="https://cdn.sofifa.net/meta/team/239235/120.png">
                             <!-- <span class="club-name">Inter Miami</span> -->
                         </div>
 
@@ -104,6 +104,7 @@
 
                 <label for="player-postion">the postion:</label>
                 <select id="player-position" required>
+                    <option value="GK">choose the postion</option>
                     <option value="GK">Gardien de but (GK)</option>
                     <option value="CB">Défenseur central (CB)</option>
                     <option value="LB">Latéral gauche (LB)</option>
@@ -133,33 +134,67 @@
                     <input type="number" id="player-rating" name="rating" min="10" max="99" required>
                 </div>
 
-                <div class="input-group">
+
+                <div class="input-group" id="diving-section">
+                    <label for="player-diving">Diving:</label>
+                    <input type="number" id="player-diving" name="diving" min="10" max="99" required>
+                </div>
+
+                <div class="input-group" id="pace-section">
                     <label for="player-pace">the pace:</label>
                     <input type="number" id="player-pace" name="pacing" min="10" max="99" required>
                 </div>
 
-                <div class="input-group">
+                <div class="input-group" id="handling-section">
+                    <label for="player-handling">Handling:</label>
+                    <input type="number" id="player-handling" name="handling" min="10" max="99" required>
+                </div>
+
+                <div class="input-group" id="shooting-section">
                     <label for="player-shooting">the shooting:</label>
                     <input type="number" id="player-shooting" name="shooting" min="10" max="99" required>
                 </div>
 
-                <div class="input-group">
+
+                <div class="input-group" id="kicking-section">
+                    <label for="player-kicking">Kicking:</label>
+                    <input type="number" id="player-kicking" name="kicking" min="10" max="99" required>
+                </div>
+
+                <div class="input-group" id="passing-section">
                     <label for="player-passing">the passing:</label>
                     <input type="number" id="player-passing" name="passing" min="10" max="99" required>
                 </div>
 
-                <div class="input-group">
+
+                <div class="input-group" id="reflex-section">
+                    <label for="player-reflexes">Reflexes:</label>
+                    <input type="number" id="player-reflexes" name="reflexes" min="10" max="99" required>
+                </div>
+
+                <div class="input-group" id="dribbling-section">
                     <label for="player-dribbling">the dribbling:</label>
                     <input type="number" id="player-dribbling" name="dribbling" min="10" max="99" required>
                 </div>
 
 
-                <div class="input-group">
+                <div class="input-group" id="speed-section">
+                    <label for="player-speed">Speed:</label>
+                    <input type="number" id="player-speed" name="speed" min="10" max="99" required>
+                </div>
+
+                <div class="input-group" id="defending-section">
                     <label for="player-defending">the defending:</label>
                     <input type="number" id="player-defending" name="defending" min="10" max="99" required>
                 </div>
 
-                <div class="input-group">
+
+                <div class="input-group" id="positioning-section">
+                    <label for="player-positioning">Positioning:</label>
+                    <input type="number" id="player-positioning" name="positioning" min="10" max="99" required>
+                </div>
+
+                <div class="input-group" id="physical-section">
                     <label for="player-physical">the physical:</label>
                     <input type="number" id="player-physical" name="physical" min="10" max="99" required>
                 </div>
@@ -192,6 +227,7 @@
             </div> -->
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
