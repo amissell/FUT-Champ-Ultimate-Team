@@ -1,3 +1,4 @@
+/* Reset and Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -5,12 +6,12 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   line-height: 1.6;
   padding: 20px;
 }
 
+/* Main Layout */
 main {
   display: flex;
   justify-content: space-between;
@@ -20,17 +21,17 @@ main {
   position: relative;
   width: 100%;
   height: 100vh;
+  background: url("images/stadium_background.webp") center/cover no-repeat;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  overflow: hidden;
-  background-image: url("images/stadium_background.webp");
-  background-size: cover;
-  background-position: center;
+  padding: 40px 0;
+  margin-bottom: 40px;
 }
 
 .form-player {
-  background: #ffffff;
+  background: #fff;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -40,7 +41,6 @@ main {
 .form-player h2 {
   text-align: center;
   margin-bottom: 20px;
-  margin-bottom: 5px;
 }
 
 #add-player-form {
@@ -48,6 +48,7 @@ main {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  overflow-x: scroll;
 }
 
 #add-player-form label {
@@ -56,136 +57,21 @@ main {
   font-weight: bold;
 }
 
-.Cards {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  width: 80%;
-  left: 50%;
-  top: 1.5%;
-  z-index: 1;
-  transform: translate(-50%);
-}
-
-.CARDS {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  width: 80%;
-  left: 50%;
-  top: 30%;
-  z-index: 1;
-  transform: translate(-50%);
-}
-
-#cardGardien {
-  position: absolute;
-  width: 110px;
-  height: 150px;
-  bottom: -160px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.container {
-  position: relative;
-  height: 140px;
-  width: 100%;
-}
-
-#cardGardien img {
-  position: absolute;
-  width: 100%;
-  left: 50%;
-  transform: translate(-50%);
-  height: auto;
-  bottom: 0;
-}
-
-.card {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  width: 80%;
-  left: 50%;
-  top: 55%;
-  z-index: 1;
-  transform: translate(-50%);
-}
-
-.fourth-card img,
-.fifth-card img,
-.sixth-card img {
-  width: 100%;
-  height: 150px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.seventh-card img,
-.eighth-card img,
-.ninth-card img,
-.tenth-card img {
-  width: 100%;
-  height: 150px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 #add-player-form input,
 #add-player-form select {
   font-size: 0.9rem;
   font-weight: 300;
-  border-color: #28a745;
+  border: 1px solid #28a745;
   border-radius: 8px;
   padding: 7px;
   margin-bottom: 8px;
 }
 
-.input-group {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.input-group label {
-  width: 45%;
-  font-size: 0.9rem;
-}
-
-.input-group input {
-  width: 45%;
-  font-size: 0.9rem;
-
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
 #add-player-form input:focus,
 #add-player-form select:focus {
   outline: none;
-  border-color: #28a745;
   box-shadow: 0 0 5px #28a745;
 }
-
-
-.first-card img,
-.second-card img,
-.third-card img {
-  /* width: 100%; */
-  height: 150px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 
 #add-player-form button {
   font-size: 1.1rem;
@@ -198,186 +84,166 @@ main {
   transition: transform 0.2s ease;
 }
 
-
-.first-card {
-  position: relative;
-  width: 150px; 
-  height: 250px;
-  display: flex;
-  flex-direction: row;
-}
-
-img.player-photo
-{
-  width: 50px;
-  height: 50px;
-}
-
-
-img.club-logo{
-  width: 18px;
-  height: 16px;
-  position: absolute;
-  top: 108px;
-  transform: translate(-50%);
-  left: 50%;
-}
-
-
-img.nationality-flag{
-  width: 25px;
-  height: 13px;
-  position: absolute;
-  top: 110px;
-  transform: translate(-50%);
-  left: 20%;
-}
-
-
-.player-photo {
-  position: absolute;
-  top: 25px;
-  left: 36%;
-  transform: translateX(-50%);
-  width: 50px; 
-  height: 50px; 
-  object-fit: cover;
-}
-
-.badge {
-  position: relative;
-  margin-top: 60px; 
-}
-  
-  .player-stats {
-    position: absolute;
-    display: flex;
-    justify-content: space-between; 
-    flex-direction: row; 
-    list-style-type: none;
-    font-size: 5px;
-    margin-top: 28px;
-    left: 36%; 
-    transform: translateX(-50%);
-    font-weight: bold;
-    padding: 0;
-    gap: 4px; 
-  }
-  
-  .player-stats li {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .rating, .pace, .shooting, .passing, .dribbling, .defending, .physical {
-    font-size: 7px;
-    font-weight: bold;
-  }
-  
-  
-
-
 #add-player-form button:hover {
-  background-color: #28a745;
   transform: scale(1.02);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.extra-cards-container {
-  display: flex;
+.forwards-row,
+.Cmidfielders-row,
+.defenders-row {
   position: absolute;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.1px;
-  padding-bottom: 3px;
-  margin-top: 3px;
-  left: 39%;
-  transform: translate(-50%);
-  top: calc(80%);
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.extra-card {
-  width: 90px;
-  height: 200px;
+.forwards-row {
+  bottom: 80%;
+}
+
+.Cmidfielders-row {
+  bottom: 50%;
+}
+
+.defenders-row {
+  bottom: 20%;
+}
+
+#cardGardien {
+  width: 100px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card {
+  width: 100px;
+  height: 150px;
+  margin: 5px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+#card-1, #card-2, #card-3, #card-4, #card-5, #card-6, #card-7, #card-8, #card-9, #card-10, #cardGardien {
+  background-image: url("images/badge_gold.webp");
+}
+.extra-cards-section {
+  margin-top: 5px; 
   display: flex;
-  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+
+.extra-cards-container {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 10px; 
+  justify-content: center; 
+  margin-top: 10px;
+
+}
+
+
+
+.extra-card {
+  width: 100px;
+  height: 150px;
+  background: url("images/badge_gold.webp") center/cover no-repeat;
+  border-radius: 8px;
+  display: flex;
   justify-content: center;
   align-items: center;
+  margin: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+.player-info {
+  position: relative;
+  text-align: center;
 }
 
 .player-name {
   margin-top: 75px;
-  margin-left: -50px;
-  font-size: 11px; 
-  text-align: center;
-  transform: translate(-50%);
+  font-size: 11px;
 }
 
-
-.player-position{
-  margin-top: -45px;
-  margin-left: -30px;
-  font-size: 10px; 
-  text-align: center;
-  transform: translate(-50%);
+.player-position {
+  font-size: 10px;
   font-weight: bold;
-
-}
-.extra-card img {
-  width: 100%;
-  height: auto;
 }
 
-@media (max-width: 480px) {
+img.player-photo {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: cover;
+}
+
+img.club-logo {
+  width: 18px;
+  height: 16px;
+  position: absolute;
+  top: 108px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+img.nationality-flag {
+  width: 25px;
+  height: 13px;
+  position: absolute;
+  top: 110px;
+  left: 20%;
+  transform: translateX(-50%);
+}
+
+/* Player Stats */
+.player-stats {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  list-style: none;
+  font-size: 5px;
+  gap: 4px;
+}
+
+.player-stats li {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .form-player {
-    width: 90%; 
+    width: 80%;
     margin: 0 auto;
   }
 
   .background-container {
-    height: auto; 
-    padding: 20px;
-  }
-
-  #add-player-form {
-    padding: 15px; 
-    min-height: calc(100vh - 50px);
-  }
-
-  .Cards,
-  .CARDS {
-    width: 100%;
-    flex-direction: column; 
-    gap: 10px;
-    padding: 0 10px; 
+    height: auto;
   }
 
   .extra-cards-container {
-    gap: 5px; 
-    padding: 10px 0; 
+    gap: 10px;
   }
 
   .extra-card {
-    width: 70px; 
-    height: 150px; 
-  }
-
-  .extra-card img {
-    width: 100%; 
-    height: auto; 
-  }
-}
-
-@media (max-width: 768px) {
-  .form-player {
-    width: 80%; 
-    padding: 20px; 
-    margin: 0 auto; 
-  }
-
-  .background-container {
-    height: 70vh; 
+    width: 70px;
+    height: 150px;
   }
 }
