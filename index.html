@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="fr">
-
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FUT Team Builder</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- <script src="script.js"></script> -->
 </head>
 
 <body>
@@ -23,23 +18,19 @@
                         <p class="player-position"></p>
 
                         <div class="player-nationality">
-                            <!-- <img class="nationality-flag" src="https://cdn.sofifa.net/flags/ar.png" alt="Argentina"> -->
-                            <!-- <span class="nationality-name">Argentina</span> -->
                         </div>
 
                         <div class="player-club">
-                            <!-- <img class="club-logo" src="https://cdn.sofifa.net/meta/team/239235/120.png"> -->
-                            <!-- <span class="club-name">Inter Miami</span> -->
                         </div>
 
                         <ul class="player-stats">
-                            <li>Rat<span class="rating"></span></li>
-                            <li>Pac<span class="pace"></span></li>
-                            <li>Sho<span class="shooting"></span></li>
-                            <li>Pas<span class="passing"></span></li>
-                            <li>Dri<span class="dribbling"></span></li>
-                            <li>Def<span class="defending"></span></li>
-                            <li>Phy<span class="physical"></span></li>
+                            <li><span class="rating"></span></li>
+                            <li><span class="pace"></span></li>
+                            <li><span class="shooting"></span></li>
+                            <li><span class="passing"></span></li>
+                            <li><span class="dribbling"></span></li>
+                            <li><span class="defending"></span></li>
+                            <li><span class="physical"></span></li>
                         </ul>
                     </div>
                 </div>
@@ -69,7 +60,7 @@
                 </div>
             </div>
             <div class="container">
-                <div id="cardGardien" class="class">
+                <div id="cardGardien" class="card">
                 </div>
             </div>
         </div>
@@ -85,37 +76,35 @@
                 <h2>add a player</h2>
 
                 <label for="player-photo">Player Photo:</label>
-                <input type="file" id="player-photo" name="photo" accept="image/*" required>
+                <input type="url" id="player-photo" name="photo" accept="image/*" pattern="https?://.*\.(jpg|jpeg|png|gif)" required>
 
                 <label for="player-name">the name:</label>
                 <input type="text" id="player-name" required>
 
                 <label for="player-postion">the postion:</label>
-                <select id="player-position" required>
-                    <option value="GK">choose the postion</option>
+                <select id="player-position">
+                    <option value="">choose the postion</option>
                     <option value="GK">Gardien de but (GK)</option>
+                    <option value="ST">Attaquant (ST)</option>  
+                    <option value="RW">Ailier droit (RW)</option>
+                    <option value="LW">Ailier gauche (LW)</option>
                     <option value="CB">Défenseur central (CB)</option>
                     <option value="LB">Latéral gauche (LB)</option>
                     <option value="RB">Latéral droit (RB)</option>
                     <option value="CD">Défenseurs centraux (CD)</option>
                     <option value="CM">Milieu central (CM)</option>
-                    <option value="LW">Ailier gauche (LW)</option>
-                    <option value="RW">Ailier droit (RW)</option>
                     <option value="LM">Milieu gauche (LM)</option>
                     <option value="RM">Milieu droit (RM)</option>
-                    <option value="ST">Attaquant (ST)</option>
                 </select>
-                <label for="player-nationality">the nationality:</label>
-                <input type="text" id="player-nationality" required>
 
                 <label for="player-flag">Player Nationality Flag:</label>
-                <input type="file" id="player-flag" name="flag" accept="image/*" required>
+                <input type="url" id="player-flag" name="flag" accept="image/*" required>
 
                 <label for="player-flag">the club:</label>
                 <input type="text" id="player-club" name="club" required>
 
                 <label for="player-logo">Club Logo:</label>
-                <input type="file" id="player-logo" name="logo" accept="image/*" required>
+                <input type="url" id="player-logo" name="logo" accept="image/*" required>
 
                 <div class="input-group">
                     <label for="player-rating">the rate:</label>
@@ -178,16 +167,16 @@
 
 
                 <div class="input-group" id="positioning-section">
-                    <label for="player-positioning">Positioning:</label>
+                    <label for="positioning">Positioning:</label>
                     <input type="number" id="player-positioning" name="positioning" min="10" max="99" required>
-                </div>
+                </div>  
 
                 <div class="input-group" id="physical-section">
-                    <label for="player-physical">the physical:</label>
+                    <label for="physical">the physical:</label>
                     <input type="number" id="player-physical" name="physical" min="10" max="99" required>
                 </div>
 
-                <button type="submit">add palyer</button>
+                <button onclick="clickbtnSubmit(event)" type="button">add palyer</button>
 
             </form>
 

@@ -157,12 +157,10 @@ main {
   width: 100px;
   height: 150px;
   background: url("images/badge_gold.webp") center/cover no-repeat;
-  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -212,7 +210,6 @@ img.nationality-flag {
   transform: translateX(-50%);
 }
 
-/* Player Stats */
 .player-stats {
   display: flex;
   justify-content: space-between;
