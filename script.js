@@ -137,6 +137,23 @@ document.addEventListener('DOMContentLoaded', function() {
         statsSpans[5].textContent = playerData.defending;
         statsSpans[6].textContent = playerData.physical;
     }
+
+    function saveToLocalStorage(name, position, playerData) {
+        console.log(playerData);
+        
+        let allPlayers = JSON.parse(localStorage.getItem("players")) || {}; 
+        // console.log(allPlayers);
+        if (!allPlayers[position]) {
+            allPlayers[position] = []; 
+        }
+        allPlayers[position].push(playerData); 
+        console.log(allPlayers);
+        localStorage.setItem("players", JSON.stringify(allPlayers)); 
+        let ayers = JSON.parse(localStorage.getItem("players")) || {};
+        console.log(ayers);
+        
+    }
+    
 });
 
 
