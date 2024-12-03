@@ -104,39 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // form.reset();
     });
 
-    function updateCardContent(card, playerData) {
-        // Update player image
-        card.querySelector('.player-image img').src = playerData.photo;
-        card.querySelector('.player-image img').alt = playerData.name;
-
-        // Update player name and position
-        card.querySelector('.player-name').textContent = playerData.name;
-        card.querySelector('.player-position').textContent = playerData.position;
-
-        // Update logos
-        card.querySelector('.country-logo img').src = playerData.nationalityFlag;
-        card.querySelector('.team-logo img').src = playerData.clubLogo;
-
-        // Update stats names
-        const statsNames = card.querySelector('.stats-names').children;
-        statsNames[0].textContent = 'RAT';
-        statsNames[1].textContent = 'PAC';
-        statsNames[2].textContent = 'SHO';
-        statsNames[3].textContent = 'PAS';
-        statsNames[4].textContent = 'DRI';
-        statsNames[5].textContent = 'DEF';
-        statsNames[6].textContent = 'PHY';
-
-        // Update stats values
-        const statsSpans = card.querySelectorAll('.player-stats span');
-        statsSpans[0].textContent = playerData.rating;
-        statsSpans[1].textContent = playerData.pace;
-        statsSpans[2].textContent = playerData.shooting;
-        statsSpans[3].textContent = playerData.passing;
-        statsSpans[4].textContent = playerData.dribbling;
-        statsSpans[5].textContent = playerData.defending;
-        statsSpans[6].textContent = playerData.physical;
-    }
+    
 
     function saveToLocalStorage(name, position, playerData) {
         console.log(playerData);
@@ -156,7 +124,108 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
+function updateCardContent(card, playerData) {
+    // Update player image
+    card.querySelector('.player-image img').src = playerData.photo;
+    card.querySelector('.player-image img').alt = playerData.name;
 
+    // Update player name and position
+    card.querySelector('.player-name').textContent = playerData.name;
+    card.querySelector('.player-position').textContent = playerData.position;
+
+    // Update logos
+    card.querySelector('.country-logo img').src = playerData.nationalityFlag;
+    card.querySelector('.team-logo img').src = playerData.clubLogo;
+
+    // Update stats names
+    const statsNames = card.querySelector('.stats-names').children;
+    statsNames[0].textContent = 'RAT';
+    statsNames[1].textContent = 'PAC';
+    statsNames[2].textContent = 'SHO';
+    statsNames[3].textContent = 'PAS';
+    statsNames[4].textContent = 'DRI';
+    statsNames[5].textContent = 'DEF';
+    statsNames[6].textContent = 'PHY';
+
+    // Update stats values
+    const statsSpans = card.querySelectorAll('.player-stats span');
+    statsSpans[0].textContent = playerData.rating;
+    statsSpans[1].textContent = playerData.pace;
+    statsSpans[2].textContent = playerData.shooting;
+    statsSpans[3].textContent = playerData.passing;
+    statsSpans[4].textContent = playerData.dribbling;
+    statsSpans[5].textContent = playerData.defending;
+    statsSpans[6].textContent = playerData.physical;
+}
+
+function populatePlayersFromLocalStorage() {
+    // Retrieve all players from local storage
+    const allPlayers = JSON.parse(localStorage.getItem("players")) || {};
+
+
+    console.log('inside populate function');
+    console.log(allPlayers);
+    
+    // Iterate over all positions and players
+    for (const position in allPlayers) {
+        if (allPlayers.hasOwnProperty(position)) {
+            const players = allPlayers[position];
+            
+            players.forEach(playerData => {
+                // Find the corresponding card for the player's position
+                let currentCard;
+                switch (playerData.position) {
+                    case 'GK':
+                        currentCard = document.getElementById('card-11');
+                        break;
+                    case 'RM':
+                        currentCard = document.getElementById('card-6');
+                        break;
+                    case 'LM':
+                        currentCard = document.getElementById('card-4');
+                        break;
+                    case 'CM':
+                        currentCard = document.getElementById('card-5');
+                        break;
+                    case 'CD':
+                        currentCard = document.getElementById('card-9');
+                        break;
+                    case 'CB':
+                        currentCard = document.getElementById('card-8');
+                        break;
+                    case 'RB':
+                        currentCard = document.getElementById('card-10');
+                        break;
+                    case 'LB':
+                        currentCard = document.getElementById('card-7');
+                        break;
+                    case 'LW':
+                        currentCard = document.getElementById('card-1');
+                        break;
+                    case 'RW':
+                        currentCard = document.getElementById('card-3');
+                        break;
+                    case 'ST':
+                        currentCard = document.getElementById('card-2');
+                        break;
+                    default:
+                        console.warn(`Unknown position: ${position}`);
+                        return;
+                }
+
+                // Update the card content with the player's data
+                if (currentCard) {
+                    updateCardContent(currentCard, playerData);
+                }
+            });
+        }
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    populatePlayersFromLocalStorage();
+});
 
 
 
