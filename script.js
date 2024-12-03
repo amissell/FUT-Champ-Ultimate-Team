@@ -1,174 +1,143 @@
 
-const PlayerPosition = document.getElementById("player-position");
-const playerPhoto = document.getElementById("player-photo")
-const playerFlag = document.getElementById("player-flag")
-const playerLogo = document.getElementById("player-logo")
-const playerClub = document.getElementById("player-club")
-const playerRating = document.getElementById("player-rating")
-const playerPace = document.getElementById("player-pace")
-const playerDefending = document.getElementById("player-defending")
-const playerDribbling = document.getElementById("player-dribbling")
-const playerName = document.getElementById("player-name")
-const playerPassing = document.getElementById("player-pace")
-const playerPhysical = document.getElementById("player-pace")
-const playerShooting = document.getElementById("player-shooting")
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('add-player-form');
+    let currentCardIndex = 1;
 
-const DivingSection = document.getElementById("diving-section");
-const PaceSection = document.getElementById("pace-section");
-const HandlingSection = document.getElementById("handling-section");
-const ShootingSection = document.getElementById("shooting-section");
-const KickingSection = document.getElementById("kicking-section");
-const PassingSection = document.getElementById("passing-section");
-const ReflexSection = document.getElementById("reflex-section");
-const DribblingSection = document.getElementById("dribbling-section");
-const SpeedSection = document.getElementById("speed-section");
-const DefendingSection = document.getElementById("defending-section");
-const PositioningSection = document.getElementById("positioning-section");
-const PhysicalSection = document.getElementById("physical-section");
-// const AddButtonPlayer = document.getElementById("addBtn")
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
 
+        
+        const currentCardLW = document.getElementById(`card-1`);
+        const currentCardST = document.getElementById(`card-2`);
+        const currentCardRW = document.getElementById(`card-3`);
+        const currentCardCML = document.getElementById(`card-4`);
+        const currentCardCMM = document.getElementById(`card-5`);
+        const currentCardCMR = document.getElementById(`card-6`);
+        const currentCardLB = document.getElementById(`card-7`);
+        const currentCardCBL = document.getElementById(`card-8`);
+        const currentCardCBR = document.getElementById(`card-9`);
+        const currentCardRB = document.getElementById(`card-10`);
+        const currentCardGK = document.getElementById(`card-11`);
+        
+        
 
-DivingSection.style.display = "none";
-PaceSection.style.display = "block";
-HandlingSection.style.display = "none";
-ShootingSection.style.display = "block";
-KickingSection.style.display = "none";
-PassingSection.style.display = "block";
-ReflexSection.style.display = "none";
-DribblingSection.style.display = "block";
-SpeedSection.style.display = "none";
-DefendingSection.style.display = "block";
-PositioningSection.style.display = "none";
-PhysicalSection.style.display = "block";
-
-// This code shows or hides sections based on the selected player position
-    PlayerPosition.addEventListener("change", function () {
-
-        if (PlayerPosition.value === "GK") {
-            DivingSection.style.display = "block";
-            PaceSection.style.display = "none";
-            HandlingSection.style.display = "block";
-            ShootingSection.style.display = "none";
-            KickingSection.style.display = "block";
-            PassingSection.style.display = "none";
-            ReflexSection.style.display = "block";
-            DribblingSection.style.display = "none";
-            SpeedSection.style.display = "block";
-            DefendingSection.style.display = "none";
-            PositioningSection.style.display = "block";
-            PhysicalSection.style.display = "none";
-    
-    
+        
+        const playerData = {
+            photo: document.getElementById('player-photo').value,
+            name: document.getElementById('player-name').value,
+            position: document.getElementById('player-position').value,
+            nationalityFlag: document.getElementById('player-nationality-flag').value,
+            clubLogo: document.getElementById('player-logo').value,
+            rating: document.getElementById('player-rating').value,
+            pace: document.getElementById('player-pace').value,
+            shooting: document.getElementById('player-shooting').value,
+            passing: document.getElementById('player-passing').value,
+            dribbling: document.getElementById('player-dribbling').value,
+            defending: document.getElementById('player-defending').value,
+            physical: document.getElementById('player-physical').value
+        };
+        console.log(playerData.position);
+        
+        switch (playerData.position) {
+            case 'GK':
+                updateCardContent(currentCardGK, playerData);
+                saveToLocalStorage(playerData.name, playerData.position, playerData);
+                
+                break;
+        
+            case 'RM':
+                updateCardContent(currentCardCMR, playerData);
+                 saveToLocalStorage(playerData.name, playerData.position, playerData);
+                break;
+        
+            case 'LM':
+                updateCardContent(currentCardCML, playerData);
+                 saveToLocalStorage(playerData.name, playerData.position, playerData);
+                break;
+        
+            case 'CM':
+                updateCardContent(currentCardCMM, playerData);
+                 saveToLocalStorage(playerData.name, playerData.position, playerData);
+                break;
+        
+            case 'CD':
+                updateCardContent(currentCardCBR, playerData);
+                 saveToLocalStorage(playerData.name, playerData.position, playerData);
+                break;
+            case 'CB':
+                updateCardContent(currentCardCBL, playerData);
+                 saveToLocalStorage(playerData.name, playerData.position, playerData);    
+                break;
+        
+            case 'RB':
+                updateCardContent(currentCardRB, playerData);
+                 saveToLocalStorage(playerData.name, playerData.position, playerData);
+                break;
+        
+            case 'LB':
+                updateCardContent(currentCardLB, playerData);
+                 saveToLocalStorage(playerData.name, playerData.position, playerData);
+                break;
+            case 'LW':
+                updateCardContent(currentCardLW, playerData);
+                 saveToLocalStorage(playerData.name, playerData.position, playerData);
+                break;
+            case 'RW':
+                updateCardContent(currentCardRW, playerData);
+                 saveToLocalStorage(playerData.name, playerData.position, playerData);
+                break;
+            case 'ST':
+                updateCardContent(currentCardST, playerData);
+                 saveToLocalStorage(playerData.name, playerData.position, playerData);
+                break;
+        
+            default:
+                break;
         }
-        else {
-            DivingSection.style.display = "none";
-            PaceSection.style.display = "block";
-            HandlingSection.style.display = "none";
-            ShootingSection.style.display = "block";
-            KickingSection.style.display = "none";
-            PassingSection.style.display = "block";
-            ReflexSection.style.display = "none";
-            DribblingSection.style.display = "block";
-            SpeedSection.style.display = "none";
-            DefendingSection.style.display = "block";
-            PositioningSection.style.display = "none";
-            PhysicalSection.style.display = "block";
-        }
+
+        
+
+        
+        currentCardIndex++;
+        
+        
+        // form.reset();
     });
 
+    function updateCardContent(card, playerData) {
+        // Update player image
+        card.querySelector('.player-image img').src = playerData.photo;
+        card.querySelector('.player-image img').alt = playerData.name;
 
+        // Update player name and position
+        card.querySelector('.player-name').textContent = playerData.name;
+        card.querySelector('.player-position').textContent = playerData.position;
 
+        // Update logos
+        card.querySelector('.country-logo img').src = playerData.nationalityFlag;
+        card.querySelector('.team-logo img').src = playerData.clubLogo;
 
+        // Update stats names
+        const statsNames = card.querySelector('.stats-names').children;
+        statsNames[0].textContent = 'RAT';
+        statsNames[1].textContent = 'PAC';
+        statsNames[2].textContent = 'SHO';
+        statsNames[3].textContent = 'PAS';
+        statsNames[4].textContent = 'DRI';
+        statsNames[5].textContent = 'DEF';
+        statsNames[6].textContent = 'PHY';
 
-
-const busyPositions = {
-    GK: false,
-    LW: false,
-    ST: false,
-    RW: false,
-    LM: false,
-    CM: false,
-    LB: false,
-    CB: false,
-    RB: false,
-    RM: false,
-};
-
-const positionsMap = [
-    "cardGardien",
-    "card-10",
-    "card-9",
-    "card-8",
-    "card-7",
-    "card-6",
-    "card-5",
-    "card-4",
-    "card-3",
-    "card-2",
-    "card-1",
-];
-
-function addPlayer(pos) {
-        
-    if (!card) {
-        alert("Invalid position selected!");
-        return;
-    }
-
-
-    if (busyPositions[pos]) {
-        alert("This position is already occupied!"); // Prevent adding to the same card
-        return;
-    }
-
-
-    // Update the card's content
-    card.innerHTML = `
-        <img class="player-photo" src="${playerPhoto.value}" alt="${playerName.value}">
-        <h3 class="player-name">${playerName.value}</h3>
-        <p class="player-position">${pos}</p>
-        <div class="player-nationality">
-            <img src="${playerFlag.value}" alt="${playerName.value}'s Country Flag" class="nationality-flag">
-        </div>
-        <div class="player-club">
-            <img src="${playerLogo.value}" alt="${playerClub.value}" class="club-logo">
-        </div>
-        <ul class="player-stats">
-            <li>Rat<span class="rating">${playerRating.value}</span></li>
-            <li>Pac<span class="pace">${playerPace}</span></li>
-            <li>Sho<span class="shooting">${playerShooting.value}</span></li>
-            <li>Pas<span class="passing">${playerPassing.value}</span></li>
-            <li>Dri<span class="dribbling">${playerDribbling.value}</span></li>
-            <li>Def<span class="defending">${playerDefending.value}</span></li>
-            <li>Phy<span class="physical">${playerPhysical.value}</span></li>
-        </ul>
-    `;
-
-    busyPositions[pos] = true;
-
-    document.getElementById("add-player-form").reset();
-}
-
-document.getElementById("add-player-form").addEventListener("submit", (e) => {
-    e.preventDefault(); 
-    
-    const selectedPosition = PlayerPosition.value; 
-    
-    if (positionsMap[selectedPosition]) {
-        addPlayer(selectedPosition); 
-    } else {
-        alert("Invalid position selected!"); // Show error if position is not valid
+        // Update stats values
+        const statsSpans = card.querySelectorAll('.player-stats span');
+        statsSpans[0].textContent = playerData.rating;
+        statsSpans[1].textContent = playerData.pace;
+        statsSpans[2].textContent = playerData.shooting;
+        statsSpans[3].textContent = playerData.passing;
+        statsSpans[4].textContent = playerData.dribbling;
+        statsSpans[5].textContent = playerData.defending;
+        statsSpans[6].textContent = playerData.physical;
     }
 });
-
-
-
-
-
-
-
-
-
 
 
 

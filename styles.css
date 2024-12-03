@@ -110,7 +110,7 @@ main {
   bottom: 20%;
 }
 
-#cardGardien {
+#card-11 {
   width: 100px;
   height: 150px;
   background-size: cover;
@@ -131,7 +131,7 @@ main {
   border-radius: 8px;
 }
 
-#card-1, #card-2, #card-3, #card-4, #card-5, #card-6, #card-7, #card-8, #card-9, #card-10, #cardGardien {
+#card-1, #card-2, #card-3, #card-4, #card-5, #card-6, #card-7, #card-8, #card-9, #card-10, #card-11 {
   background-image: url("images/badge_gold.webp");
 }
 .extra-cards-section {
@@ -154,13 +154,13 @@ main {
 
 
 .extra-card {
+  background: url("images/badge_gold.webp") center/cover no-repeat;
   width: 100px;
   height: 150px;
-  background: url("images/badge_gold.webp") center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 5px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
 }
 
 
@@ -172,17 +172,58 @@ main {
   text-align: center;
 }
 
+.player-image img{
+  width: 4.5rem;
+  height: 3.5rem;
+  font-size: x-small;
+  transform: translate(0rem,2.5rem);
+}
+
 .player-name {
-  margin-top: 75px;
-  font-size: 11px;
+  font-size: small;
+  transform: translate(0rem,1.7rem);
 }
 
 .player-position {
   font-size: 10px;
   font-weight: bold;
+  transform: translate(-2rem, -3rem);
 }
 
-img.player-photo {
+.logos{
+  display: flex;
+  gap: 5px;
+  transform: translate(2.2rem, 0.9rem);
+}
+
+.stats-names{
+  display: flex;
+  gap: 5px;
+  font-size: 5px;
+  font-weight: 700;
+  transform: translate(0.5rem,-1.2rem);
+}
+
+.player-stats {
+  display: flex;
+  list-style: none;
+  font-size: 5px;
+  gap: 7px;
+  transform: translate(0.5rem, -1.2rem);
+}
+
+.country-logo img{
+  width: 0.8rem;
+}
+.team-logo img{
+width: 0.7rem;
+}
+.player-stats li {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* img.player-photo {
   width: 50px;
   height: 50px;
   position: absolute;
@@ -190,9 +231,9 @@ img.player-photo {
   left: 50%;
   transform: translateX(-50%);
   object-fit: cover;
-}
+} */
 
-img.club-logo {
+/* img.club-logo {
   width: 18px;
   height: 16px;
   position: absolute;
@@ -208,21 +249,10 @@ img.nationality-flag {
   top: 110px;
   left: 20%;
   transform: translateX(-50%);
-}
+} */
 
-.player-stats {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  list-style: none;
-  font-size: 5px;
-  gap: 4px;
-}
 
-.player-stats li {
-  text-align: center;
-  font-weight: bold;
-}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
