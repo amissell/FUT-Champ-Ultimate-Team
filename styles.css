@@ -14,7 +14,7 @@ main {
   justify-content: space-between;
 }
 .navbar {
-  position: sticky;
+  position: sticky; /* to fix the nav while scroll*/
   top: 0;
   left: 0;
   width: 100%;
@@ -23,8 +23,7 @@ main {
   align-items: center;
   justify-content: end;
   padding: 0 3%;
-  box-shadow: 0 0 12px 5px #0000001b;
-  z-index: 1542651;
+  z-index: 1;
   background-color: #fff;
 }
 .navbar i {
@@ -59,7 +58,7 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 40%;
   padding-bottom: 60px;
-  z-index: 1542;
+  z-index: 1;
   transition: right .4s ease;
   height: 100vh;
   overflow: auto;
@@ -124,7 +123,6 @@ main {
 .Cmidfielders-row,
 .defenders-row {
   position: absolute;
-  /* width: 60%; */
   display: flex;
   justify-content: space-between;
 }
@@ -186,21 +184,14 @@ main {
 
 }
 
-
-
 .extra-card {
-  background: url("images/badge_gold.webp") center/cover no-repeat;
+  background: url("images/badge_gold.webp");
   width: 100px;
   height: 150px;
   margin: 5px;
   background-size: cover;
   background-position: center;
-  border-radius: 8px;
 }
-
-
-
-
 
 .player-info {
   position: relative;
@@ -257,22 +248,4 @@ width: 0.7rem;
 .player-stats li {
   text-align: center;
   font-weight: bold;
-}
-
-
-
-
-
-@media (max-width: 768px) {
-
-  
-
-  .extra-cards-container {
-    gap: 10px;
-  }
-
-  .extra-card {
-    width: 70px;
-    height: 150px;
-  }
 }

@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         players.forEach((playerData) => {
 
-            console.log(playerData.position);
+            // console.log(playerData.position);
             switch (playerData.position) {
                 case 'GK':
                     updateCardContent(currentCardGK, playerData);
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
             statsNames[1].textContent = 'PAC';  
             statsNames[2].textContent = 'SHO';  
             statsNames[3].textContent = 'PAS';  
-            statsNames[4].textContent = 'DRI';  
+            statsNames[4].textContent = 'DRI';
             statsNames[5].textContent = 'DEF';  
             statsNames[6].textContent = 'PHY';
         }
@@ -211,9 +211,9 @@ document.addEventListener('DOMContentLoaded', function () {
             statsSpans[1].textContent = playerData.Diving;     
             statsSpans[2].textContent = playerData.Handling;   
             statsSpans[3].textContent = playerData.Kicking;    
-            statsSpans[4].textContent = playerData.Reflex;     
+            statsSpans[4].textContent = playerData.Reflex;
             statsSpans[5].textContent = playerData.speed;      
-            statsSpans[6].textContent = playerData.positioning 
+            statsSpans[6].textContent = playerData.positioning;
         } else {
             statsSpans[0].textContent = playerData.rating;
             statsSpans[1].textContent = playerData.pace;
