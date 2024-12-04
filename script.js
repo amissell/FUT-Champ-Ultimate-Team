@@ -11,6 +11,14 @@ const SpeedSection = document.getElementById("speed-section");
 const DefendingSection = document.getElementById("defending-section");
 const PositioningSection = document.getElementById("positioning-section");
 const PhysicalSection = document.getElementById("physical-section");
+// localStorage.clear()
+const addPlayerForm = document.querySelector(".form-player")
+const buttonToggle = document.querySelector("#toggle-form")
+
+buttonToggle.addEventListener("click", ()=> {
+    addPlayerForm.classList.toggle("active");
+})
+
 
 DivingSection.style.display = "none";
 PaceSection.style.display = "block";
@@ -55,9 +63,15 @@ PlayerPosition.addEventListener("change", function () {
     }
 });
 
+let players = JSON.parse(localStorage.getItem("players")) || [];
+
+const savePlayers = ()=> {
+    localStorage.setItem("players", JSON.stringify(players));
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('add-player-form');
-    let currentCardIndex = 1;
+    let currentCardIndex = 0;
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -97,59 +111,73 @@ document.addEventListener('DOMContentLoaded', function () {
             positioning: document.getElementById('player-positioning').value,
         };
 
-        switch (playerData.position) {
-            case 'GK':
-                updateCardContent(currentCardGK, playerData);
-                break;
+        
+        players.push(playerData)
+        
+        players.forEach((playerData) => {
 
-            case 'RM':
-                updateCardContent(currentCardCMR, playerData);
-                break;
-
-            case 'LM':
-                updateCardContent(currentCardCML, playerData);
-                break;
-
-            case 'CM':
-                updateCardContent(currentCardCMM, playerData);
-                break;
-
-            case 'CD':
-                updateCardContent(currentCardCBR, playerData);
-                break;
-
-            case 'CB':
-                updateCardContent(currentCardCBL, playerData);
-                break;
-
-            case 'RB':
-                updateCardContent(currentCardRB, playerData);
-                break;
-
-            case 'LB':
-                updateCardContent(currentCardLB, playerData);
-                break;
-
-            case 'LW':
-                updateCardContent(currentCardLW, playerData);
-                break;
-
-            case 'RW':
-                updateCardContent(currentCardRW, playerData);
-                break;
-
-            case 'ST':
-                updateCardContent(currentCardST, playerData);
-                break;
-
-            default:
-                break;
-        }
+            console.log(playerData.position);
+            switch (playerData.position) {
+                case 'GK':
+                    updateCardContent(currentCardGK, playerData);
+                    
+                    break;
+    
+                case 'RM':
+                    updateCardContent(currentCardCMR, playerData);
+                    break;
+    
+                case 'LM':
+                    updateCardContent(currentCardCML, playerData);
+                    break;
+    
+                case 'CM':
+                    updateCardContent(currentCardCMM, playerData);
+                    break;
+    
+                case 'CD':
+                    updateCardContent(currentCardCBR, playerData);
+                    break;
+    
+                case 'CB':
+                    updateCardContent(currentCardCBL, playerData);
+                    break;
+    
+                case 'RB':
+                    updateCardContent(currentCardRB, playerData);
+                    break;
+    
+                case 'LB':
+                    updateCardContent(currentCardLB, playerData);
+                    break;
+    
+                case 'LW':
+                    updateCardContent(currentCardLW, playerData);
+                    break;
+    
+                case 'RW':
+                    updateCardContent(currentCardRW, playerData);
+                    break;
+    
+                case 'ST':
+                    updateCardContent(currentCardST, playerData);
+                    break;
+    
+                default:
+                    break;
+            }
+        })
 
         currentCardIndex++;
+        console.log(currentCardIndex);
+        savePlayers()
+        addPlayerForm.classList.remove("active");
     });
 
+    
+
     function updateCardContent(card, playerData) {
+
         card.querySelector('.player-image img').src = playerData.photo;
         card.querySelector('.player-name').textContent = playerData.name;
         card.querySelector('.player-position').textContent = playerData.position;
@@ -195,6 +223,7 @@ document.addEventListener('DOMContentLoaded', function () {
             statsSpans[5].textContent = playerData.defending;
             statsSpans[6].textContent = playerData.physical;
         }
+
     }
     
 });
